@@ -561,7 +561,10 @@ void single_LL::display()  <br>
  cout<<endl;  <br>
 } <br>
 }<br><br>
-	![image](https://user-images.githubusercontent.com/97940332/154902067-c5f98269-4c2a-4c5e-a48a-a439685e6cad.png)
+	
+
+**OUTPUT:**
+![image](https://user-images.githubusercontent.com/97940332/154902067-c5f98269-4c2a-4c5e-a48a-a439685e6cad.png)
 ![image](https://user-images.githubusercontent.com/97940332/154902765-ecf7a91e-9d1f-4e5f-80b4-282a99644072.png)
 ![image](https://user-images.githubusercontent.com/97940332/154902837-a591fbcf-72a5-4158-a19a-51b9b81a7fb6.png)
 ![image](https://user-images.githubusercontent.com/97940332/154903004-07e1d2a1-8b9c-425a-a0ae-149c98a89413.png)
@@ -574,6 +577,44 @@ void single_LL::display()  <br>
 ![image](https://user-images.githubusercontent.com/97940332/154903830-d66c176d-70f0-486b-a75e-f72e35ff3005.png)
 ![image](https://user-images.githubusercontent.com/97940332/154903967-a55635a8-2958-463d-b94d-a83b2e2dab01.png)
 ![image](https://user-images.githubusercontent.com/97940332/154904040-ee819643-70d6-4262-9ab1-17c539236d0e.png)
+
+	
+3.//C++ program to implement addition of 2 Arrays.
+	
+#include<iostream> <br> 
+using namespace std; <br>
+int main() <br>
+{ <br>
+	int size, i, arr1[10], arr2[10], add[10]; <br>
+	cout << "\nPlease Enter the Array Size =  "; <br>
+	cin >> size; <br>
+	cout << "\nPlease Enter the First Array elements : "; <br>
+	for(i = 0; i < size; i++) <br>
+	{ <br>
+		cin >> arr1[i]; <br>
+	} <br>	
+	cout << "\nPlease Enter the Second Array elements :  "; <br>
+	for(i = 0; i < size; i++) <br>
+	{ <br>
+		cin >> arr2[i]; <br>
+	} <br>
+	for(i = 0; i < size; i++) <br>
+	{ <br>
+		add[i] = arr1[i] + arr2[i]; <br>
+		cout << arr1[i] << " + " << arr2[i] << " = " << add[i] << "\n"; <br>
+	} <br>
+	cout << "\nThe Final Result of adding 2 One Dimensional Arrays = "; <br>
+	for(i = 0; i < size; i++) <br>
+	{ <br>
+		cout << add[i] << " "; <br>
+	} <br>
+return 0; <br>
+ } <br> <br>
+	
+**OUTPUT:**
+	
+	![image](https://user-images.githubusercontent.com/97940332/154905267-fdcfe64d-7ebf-4068-b88d-4c1149373b05.png)
+
 
 
 
