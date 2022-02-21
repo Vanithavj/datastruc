@@ -610,8 +610,7 @@ int main() <br>
 	} <br>
 return 0; <br>
  } <br> <br>
-	
-**OUTPUT:**
+	**OUTPUT:**
 	![image](https://user-images.githubusercontent.com/97940332/154905267-fdcfe64d-7ebf-4068-b88d-4c1149373b05.png)
 	
 	
