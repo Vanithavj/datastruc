@@ -29,6 +29,7 @@ int main(void)<br>
    }<br>
    return 0;<br>
 }<br>
+	**OUTPUT:**
   
   ![image](https://user-images.githubusercontent.com/97940332/154891861-b9e5a4d9-62be-4861-8e65-2f43fd7c4992.png)
 ![image](https://user-images.githubusercontent.com/97940332/154892327-b30d97c9-a590-47ec-be74-120bb284d01a.png)
@@ -109,85 +110,85 @@ class single_LL<br>
  case 5: s2.delete_last(); <br>
  sl.display(); <br>
  break; <br>
- case 6: sl.delete_pos(); 
- sl.display(); 
- break; 
- case 7: sl.update_begin(); 
- sl.display(); 
- break; 
- case 8: sl.update_last(); 
- sl.display(); 
- break; 
- case 9: sl.update_pos(); 
- sl.display(); 
- break; 
- case 10:sl.sort(); 
- sl.display(); 
- break; 
- case 11:sl.reverse(); 
- sl.display(); 
- break; 
- case 12:sl.search(); 
- sl.display(); 
- break; 
- case 13:sl.display(); 
- break; 
- case 14:exit(0); 
- break; 
- default:cout<<"Wrong choice...???"<<endl; 
- break; 
- } 
- } 
- while(choice != 14); 
-} 
-node *single_LL::create_node(int value) 
-{ 
- struct node *temp, *s; 
- temp = new(struct node); 
- if (temp == NULL) 
- { 
- cout<<"Memory not allocated"<<endl; 
- return 0; 
- } 
- else 
- { 
- temp->info = value; 
- temp->next = NULL; 
- return temp; 
- } 
-} 
-void single_LL::insert_begin() 
-{ 
- int value; 
- cout<<"Enter the value to be inserted : "; 
- cin>>value; 
- struct node *temp, *s; 
- temp = create_node(value); 
- if (start == NULL) 
- { 
- start = temp; 
- start->next = NULL; 
- cout<<temp->info<<" is inserted at first in the empty list"<<endl; 
- } 
- else 
- { 
- s = start; 
- start = temp; 
- start->next = s; 
- cout<<temp->info<<" is inserted at first"<<endl; 
- } 
-} 
-void single_LL::insert_last() 
-{ 
- int value; 
- cout<<"Enter the value to be inserted : "; 
- cin>>value; 
- struct node *temp, *s; 
- temp = create_node(value); 
- if (start == NULL) 
- { 
- start = temp; 
- start->next = NULL; 
+ case 6: sl.delete_pos(); <br>
+ sl.display(); <br>
+ break; <br>
+ case 7: sl.update_begin(); <br>
+ sl.display(); <br>
+ break; <br>
+ case 8: sl.update_last(); <br>
+ sl.display(); <br>
+ break; <br>
+ case 9: sl.update_pos(); <br>
+ sl.display(); <br>
+ break; <br>
+ case 10:sl.sort(); <br>
+ sl.display();<br> 
+ break; <br>
+ case 11:sl.reverse(); <br>
+ sl.display(); <br>
+ break; <br>
+ case 12:sl.search(); <br>
+ sl.display(); <br>
+ break; <br>
+ case 13:sl.display(); <br>
+ break; <br>
+ case 14:exit(0); <br>
+ break;<br> 
+ default:cout<<"Wrong choice...???"<<endl; <br>
+ break; <br>
+ } <br>
+ } <br>
+ while(choice != 14); <br>
+} <br>
+node *single_LL::create_node(int value) <br>
+{ <br>
+ struct node *temp, *s; <br>
+ temp = new(struct node); <br>
+ if (temp == NULL)<br> 
+ { <br>
+ cout<<"Memory not allocated"<<endl; <br>
+ return 0; <br>
+ } <br>
+ else <br>
+ { <br>
+ temp->info = value; <br>
+ temp->next = NULL;<br> 
+ return temp; <br>
+ } <br>
+} <br>
+void single_LL::insert_begin()<br> 
+{ <br>
+ int value; <br>
+ cout<<"Enter the value to be inserted : "; <br>
+ cin>>value; <br>
+ struct node *temp, *s; <br>
+ temp = create_node(value); <br>
+ if (start == NULL) <br>
+ {<br> 
+ start = temp; <br>
+ start->next = NULL;<br> 
+ cout<<temp->info<<" is inserted at first in the empty list"<<endl; <br>
+ } <br>
+ else <br>
+ { <br>
+ s = start; <br>
+ start = temp; <br>
+ start->next = s; <br>
+ cout<<temp->info<<" is inserted at first"<<endl; <br>
+ } <br>
+} <br>
+void single_LL::insert_last() <br>
+{ <br>
+ int value;<br> 
+ cout<<"Enter the value to be inserted : ";<br> 
+ cin>>value; <br>
+ struct node *temp, *s; <br>
+ temp = create_node(value); <br>
+ if (start == NULL) <br>
+ { <br>
+ start = temp;<br> 
+ start->next = NULL;<br> 
  cout<<temp->info<<" is inserted at last in the empty list"<<endl; 
  } 
  else 
