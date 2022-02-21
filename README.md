@@ -189,378 +189,382 @@ void single_LL::insert_last() <br>
  { <br>
  start = temp;<br> 
  start->next = NULL;<br> 
- cout<<temp->info<<" is inserted at last in the empty list"<<endl; 
- } 
- else 
- { 
- s = start; 
- while (s->next != NULL) 
- { 
- s = s->next; 
- } 
- temp->next = NULL; 
- s->next = temp; 
- cout<<temp->info<<" is inserted at last"<<endl; 
- } 
-} 
-void single_LL::insert_pos() 
-{ 
- int value, pos, counter = 0, loc = 1; 
- struct node *temp, *s, *ptr; 
- s = start; 
- while (s != NULL) 
- { 
- s = s->next; 
- counter++; 
- } 
- if (counter == 0){} 
- else 
- { 
- cout<<"Enter the postion from "<<loc<<" to "<<counter+1<<" : "; 
- cin>>pos; 
- s = start; 
- if(pos == 1) 
- { 
- cout<<"Enter the value to be inserted : "; 
- cin>>value; 
- temp = create_node(value); 
- start = temp; 
- start->next = s; 
- cout<<temp->info<<" is inserted at first"<<endl; 
- } 
- else if (pos > 1 && pos <= counter) 
- { 
- cout<<"Enter the value to be inserted : "; 
- cin>>value; 
- temp = create_node(value); 
- for (int i = 1; i < pos; i++) 
- { 
- ptr = s; 
- s = s->next; 
- } 
- ptr->next = temp; 
- temp->next = s; 
- cout<<temp->info<<" is inserted at position "<<pos<<endl; 
- } 
- else if (pos == counter+1) 
- { 
- cout<<"Enter the value to be inserted : "; 
- cin>>value; 
- temp = create_node(value); 
- while (s->next != NULL) 
- { 
- s = s->next; 
- } 
- temp->next = NULL; 
- s->next = temp; 
- cout<<temp->info<<" is inserted at last"<<endl; 
- } 
- else 
- { 
- cout<<"Positon out of range...!!!"<<endl; 
- } 
- } 
-} 
-void single_LL::delete_begin() 
-{ 
- if (start == NULL){} 
- else 
- { 
- struct node *s, *ptr; 
- s = start; 
- start = s->next; 
- cout<<s->info<<" deleted from first"<<endl; 
- free(s); 
- } 
-} 
-void single_LL::delete_last() 
-{ 
- int i, counter = 0; 
- struct node *s, *ptr; 
- if (start == NULL){} 
- else 
- { 
- s = start; 
- while (s != NULL) 
- { 
- s = s->next; 
- counter++; 
- } 
- s = start; 
- if (counter == 1) 
- { 
- start = s->next; 
- cout<<s->info<<" deleted from last"<<endl; 
- free(s); 
- } 
- else 
- { 
- for (i = 1;i < counter;i++) 
- { 
- ptr = s; 
- s = s->next; 
- } 
- ptr->next = s->next; 
- cout<<s->info<<" deleted from last"<<endl; 
- free(s); 
- } 
- } 
-} 
-void single_LL::delete_pos() 
-{ 
- int pos, i, counter = 0, loc = 1; 
- struct node *s, *ptr; 
- s = start; 
- while (s != NULL) 
- { 
- s = s->next; 
- counter++; 
- } 
- if (counter == 0){} 
- else 
- { 
- if (counter == 1) 
- { 
- cout<<"Enter the postion [ SAY "<<loc<<" ] : "; 
- cin>>pos; 
- s = start; 
- if (pos == 1) 
- { 
- start = s->next; 
- cout<<s->info<<" deleted from first"<<endl; 
- free(s); 
- } 
- else 
- cout<<"Position out of range...!!!"<<endl; 
- } 
- else 
- { 
- cout<<"Enter the postion from "<<loc<<" to "<<counter<<" : "; 
- cin>>pos; 
- s = start; 
- if (pos == 1) 
- { 
- start = s->next; 
- cout<<s->info<<" deleted from first"<<endl; 
- free(s); 
- } 
- else if (pos > 1 && pos <= counter) 
- { 
- for (i = 1;i < pos;i++) 
- { 
- ptr = s; 
- s = s->next; 
- } 
- ptr->next = s->next; 
- if(pos == counter) 
- {cout<<s->info<<" deleted from last"<<endl; 
- free(s);} 
- else 
- {cout<<s->info<<" deleted from postion "<<pos<<endl; 
- free(s);} 
- } 
- else 
- cout<<"Position out of range...!!!"<<endl; 
- } 
- } 
-} 
-void single_LL::update_begin() 
-{ 
- int value, pos=1, i,counter = 0; 
- struct node *s, *ptr; 
- s = start; 
- while (s != NULL) 
- { 
- s = s->next; 
- counter++; 
- } 
- if (counter == 0){} 
- else if (pos == 1) 
- { 
- cout<<"Enter the new node : "; 
- cin>>value; 
- start->info = value; 
- cout<<"Node updated at first position : "<<pos<<" = "<<start->info<<endl; 
- } 
-} 
-void single_LL::update_last() 
-{ 
- int value, pos, i,counter = 0; 
- struct node *s, *ptr; 
- s = start; 
- while (s != NULL) 
- { 
- s = s->next; 
- counter++; 
- } 
- s=start; 
- if (counter == 0){} 
- else 
- { 
- cout<<"Enter the new node : "; 
- cin>>value; 
- for (i = 1; i < counter ; i++) 
- { 
- s = s->next; 
- } 
- s->info = value; 
- cout<<"Node updated at last position : "<<counter<<" = "<<s->info<<endl; 
- } 
-} 
-void single_LL::update_pos() 
-{ 
- int value, pos, i,counter = 0, loc = 1; 
- struct node *s, *ptr; 
- s = start; 
- while (s != NULL) 
- { 
- s = s->next; 
- counter++; 
- } 
- if (counter == 0){} 
- else 
- { 
- if (counter == 1) 
- { 
- cout<<"Enter the postion [ SAY "<<loc<<" ] : "; 
- cin>>pos; 
- s = start; 
- if (pos == 1) 
- { 
- cout<<"Enter the new node : "; 
- cin>>value; 
- start->info = value; 
- cout<<"Node updated at position : "<<pos<<" = "<<start->info<<endl; 
- } 
- else 
- cout<<"Position out of range...!!!"<<endl; 
- } 
- else 
- { 
- cout<<"Enter the postion from "<<loc<<" to "<<counter<<" : "; 
- cin>>pos; 
- s = start; 
- if (pos == 1) 
- { 
- cout<<"Enter the new node : "; 
- cin>>value; 
- start->info = value; 
- cout<<"Node updated at position : "<<pos<<" = "<<start->info<<endl; 
- } 
- else if (pos > 1 && pos <= counter) 
- { 
- cout<<"Enter the new node : "; 
- cin>>value; 
- for (i = 1; i < pos ; i++) 
- { 
- s = s->next; 
- } 
- s->info = value; 
- cout<<"Node updated at position : "<<pos<<" = "<<s->info<<endl; 
- } 
- else 
- cout<<"Position out of range...!!!"<<endl; 
- } 
- } 
-} 
-void single_LL::sort() 
-{ 
- struct node *ptr, *s; 
- int value; 
- if (start == NULL){} 
- else 
- { 
- ptr = start; 
- while (ptr != NULL) 
- { 
- for (s = ptr->next;s !=NULL;s = s->next) 
- { 
- if (ptr->info > s->info) 
- { 
- value = ptr->info; 
- ptr->info = s->info; 
- s->info = value; 
- } 
- } 
- ptr = ptr->next; 
- } 
- } 
-} 
-void single_LL::reverse() 
-{ 
- struct node *ptr, *s; 
- int value; 
- if (start == NULL){} 
- else 
- { 
- ptr = start; 
- while (ptr != NULL) 
- { 
- for (s = ptr->next;s !=NULL;s = s->next) 
- { 
- if (ptr->info < s->info) 
- { 
- value = ptr->info; 
- ptr->info = s->info; 
- s->info = value; 
- } 
- } 
- ptr = ptr->next; 
- } 
- } 
-} 
-void single_LL::search() 
-{ 
- int value, loc = 0, pos = 0, counter = 0; 
- struct node *s; 
- s = start; 
- while (s != NULL) 
- { 
- s = s->next; 
- counter++; 
- } 
- if (start == NULL){} 
- else 
- { 
- cout<<"Enter the value to be searched : "; 
- cin>>value; 
- struct node *s; 
- s = start; 
- while (s != NULL) 
- { 
- pos++; 
- if (s->info == value) 
- { 
- loc++; 
- if(loc == 1) 
- cout<<"Element "<<value<<" is found at position "<<pos; 
- else if(loc <= counter) 
- cout<<" , "<<pos; 
- } 
- s = s->next; 
- } 
- cout<<endl; 
- if (loc == 0) 
- cout<<"Element "<<value<<" not found in the list"<<endl; 
- } 
-} 
-void single_LL::display() 
-{ 
- struct node *temp; 
- if (start == NULL) 
- cout<<"Linked list is empty...!!!"<<endl; 
- else 
- { 
- cout<<"Linked list contains : "; 
- temp = start; 
- while (temp != NULL) 
- { 
- cout<<temp->info<<" "; 
- temp = temp->next; 
- } 
- cout<<endl; 
-}
+ cout<<temp->info<<" is inserted at last in the empty list"<<endl; <br>
+ } <br>
+ else <br>
+ { <br>
+ s = start; <br>
+ while (s->next != NULL) <br>
+ {  <br>
+ s = s->next;  <br>
+ }  <br>
+ temp->next = NULL;  <br>
+ s->next = temp;  <br>
+ cout<<temp->info<<" is inserted at last"<<endl;  <br>
+ }  <br>
+}  <br>
+void single_LL::insert_pos()  <br>
+{  <br>
+ int value, pos, counter = 0, loc = 1;  <br>
+ struct node *temp, *s, *ptr;  <br>
+ s = start; <br> 
+ while (s != NULL)  <br>
+ {  <br>
+ s = s->next;  <br>
+ counter++;  <br>
+ }  <br>
+ if (counter == 0){}  <br>
+ else  <br>
+ {  <br>
+ cout<<"Enter the postion from "<<loc<<" to "<<counter+1<<" : ";  <br>
+ cin>>pos;  <br>
+ s = start;  <br>
+ if(pos == 1)  <br>
+ {  <br>
+ cout<<"Enter the value to be inserted : ";  <br>
+ cin>>value;  <br>
+ temp = create_node(value);  <br>
+ start = temp;  <br>
+ start->next = s;  <br>
+ cout<<temp->info<<" is inserted at first"<<endl; <br> 
+ }  <br>
+ else if (pos > 1 && pos <= counter)  <br>
+ {  <br>
+ cout<<"Enter the value to be inserted : ";  <br>
+ cin>>value;  <br>
+ temp = create_node(value);  <br>
+ for (int i = 1; i < pos; i++)  <br>
+ {  <br>
+ ptr = s;  <br>
+ s = s->next;  <br>
+ }  <br>
+ ptr->next = temp; <br> 
+ temp->next = s; <br> 
+ cout<<temp->info<<" is inserted at position "<<pos<<endl;  <br>
+ }  <br>
+ else if (pos == counter+1) <br> 
+ {  <br>
+ cout<<"Enter the value to be inserted : ";  <br>
+ cin>>value;  <br>
+ temp = create_node(value);  <br>
+ while (s->next != NULL)  <br>
+ {  <br>
+ s = s->next;  <br>
+ }  <br>
+ temp->next = NULL;  <br>
+ s->next = temp;  <br>
+ cout<<temp->info<<" is inserted at last"<<endl;  <br>
+ }  <br>
+ else  <br>
+ {  <br>
+ cout<<"Positon out of range...!!!"<<endl; <br> 
+ }  <br>
+ }  <br>
+}  <br>
+void single_LL::delete_begin()  <br>
+{  <br>
+ if (start == NULL){}  <br>
+ else  <br>
+ {  <br>
+ struct node *s, *ptr;  <br>
+ s = start;  <br>
+ start = s->next;  <br>
+ cout<<s->info<<" deleted from first"<<endl;  <br>
+ free(s);  <br>
+ }  <br>
+}  <br>
+void single_LL::delete_last()  <br>
+{  <br>
+ int i, counter = 0;  <br>
+ struct node *s, *ptr;  <br>
+ if (start == NULL){} <br> 
+ else  <br>
+ {  <br>
+ s = start;  <br>
+ while (s != NULL)  <br>
+ {  <br>
+ s = s->next; <br>
+ counter++;  <br>
+ }  <br>
+ s = start;  <br>
+ if (counter == 1) <br> 
+ {  <br>
+ start = s->next;  <br>
+ cout<<s->info<<" deleted from last"<<endl;  <br>
+ free(s);  <br>
+ }  <br>
+ else  <br>
+ {  <br>
+ for (i = 1;i < counter;i++)  <br>
+ {  <br>
+ ptr = s;  <br>
+ s = s->next; <br> 
+ }  <br>
+ ptr->next = s->next; <br>  
+ cout<<s->info<<" deleted from last"<<endl;  <br>
+ free(s);  <br>
+ }  <br>
+ }  <br>
+}  <br>
+void single_LL::delete_pos()  <br>
+{  <br>
+ int pos, i, counter = 0, loc = 1;  <br>
+ struct node *s, *ptr;  <br>
+ s = start;  <br>
+ while (s != NULL)  <br>
+ {  <br>
+ s = s->next;  <br>
+ counter++;  <br>
+ }  <br>
+ if (counter == 0){} <br> 
+ else  <br>
+ { <br> 
+ if (counter == 1)  <br>
+ {  <br>
+ cout<<"Enter the postion [ SAY "<<loc<<" ] : ";  <br>
+ cin>>pos;  <br>
+ s = start;  <br>
+ if (pos == 1) <br> 
+ {  <br>
+ start = s->next;  <br>
+ cout<<s->info<<" deleted from first"<<endl;  <br>
+ free(s);  <br>
+ }  <br>
+ else <br> 
+ cout<<"Position out of range...!!!"<<endl;  <br>
+ }  <br>
+ else  <br>
+ {  <br>
+ cout<<"Enter the postion from "<<loc<<" to "<<counter<<" : ";  <br>
+ cin>>pos;  <br>
+ s = start;  <br>
+ if (pos == 1)  <br>
+ {  <br>
+ start = s->next;  <br>
+ cout<<s->info<<" deleted from first"<<endl;  <br>
+ free(s);  <br>
+ }  <br>
+ else if (pos > 1 && pos <= counter)  <br>
+ {  <br>
+ for (i = 1;i < pos;i++)  <br>
+ {  <br>
+ ptr = s; <br> 
+ s = s->next;  <br>
+ }  <br>
+ ptr->next = s->next;  <br>
+ if(pos == counter)  <br>
+ {cout<<s->info<<" deleted from last"<<endl;  <br>
+ free(s);}  <br>
+ else  <br>
+ {cout<<s->info<<" deleted from postion "<<pos<<endl;  <br>
+ free(s);}  <br>
+ }  <br>
+ else  <br>
+ cout<<"Position out of range...!!!"<<endl;  <br>
+ }  <br>
+ }  <br> 
+}  <br>
+void single_LL::update_begin()  <br>
+{  <br>
+ int value, pos=1, i,counter = 0;  <br>
+ struct node *s, *ptr;  <br>
+ s = start;  <br>
+ while (s != NULL)  <br>
+ {  <br>
+ s = s->next;  <br>
+ counter++;  <br>
+ }  <br>
+ if (counter == 0){} <br> 
+ else if (pos == 1)  <br>
+ {  <br>
+ cout<<"Enter the new node : "; <br> 
+ cin>>value;  <br>
+ start->info = value;  <br>
+ cout<<"Node updated at first position : "<<pos<<" = "<<start->info<<endl;  <br>
+ }  <br>
+}  <br>
+void single_LL::update_last()  <br>
+{  <br>
+ int value, pos, i,counter = 0;  <br>
+ struct node *s, *ptr;  <br>
+ s = start;  <br>
+ while (s != NULL)  <br>
+ {  <br>
+ s = s->next; <br> 
+ counter++; <br> 
+ }  <br>
+ s=start;  <br>
+ if (counter == 0){}  <br>
+ else <br> 
+ {  <br>
+ cout<<"Enter the new node : ";  <br>
+ cin>>value;  <br>
+ for (i = 1; i < counter ; i++)  <br>
+ {  <br>
+ s = s->next;  <br>
+ }  <br>
+ s->info = value; <br> 
+ cout<<"Node updated at last position : "<<counter<<" = "<<s->info<<endl;  <br>
+ }  <br>
+}  <br>
+void single_LL::update_pos()  <br>
+{  <br>
+ int value, pos, i,counter = 0, loc = 1;  <br>
+ struct node *s, *ptr;  <br>
+ s = start;  <br> 
+ while (s != NULL)  <br>
+ {  <br>
+ s = s->next;  <br>
+ counter++;  <br>
+ }  <br>
+ if (counter == 0){}  <br>
+ else  <br>
+ {  <br>
+ if (counter == 1)  <br>
+ {  <br>
+ cout<<"Enter the postion [ SAY "<<loc<<" ] : "; <br> 
+ cin>>pos;  <br>
+ s = start;  <br>
+ if (pos == 1)  <br>
+ {  <br>
+ cout<<"Enter the new node : ";  <br>
+ cin>>value;  <br>
+ start->info = value;  <br>
+ cout<<"Node updated at position : "<<pos<<" = "<<start->info<<endl;  <br>
+ }  <br>
+ else  <br>
+ cout<<"Position out of range...!!!"<<endl;  <br>
+ }  <br>
+ else  <br>
+ {  <br>
+ cout<<"Enter the postion from "<<loc<<" to "<<counter<<" : ";  <br>
+ cin>>pos; <br> 
+ s = start;  <br>
+ if (pos == 1)  <br>
+ {  <br>
+ cout<<"Enter the new node : ";  <br>
+ cin>>value;  <br>
+ start->info = value;  <br>
+ cout<<"Node updated at position : "<<pos<<" = "<<start->info<<endl;  <br>
+ }  <br> 
+ else if (pos > 1 && pos <= counter)  <br>
+ {  <br>
+ cout<<"Enter the new node : ";  <br>
+ cin>>value;  <br>
+ for (i = 1; i < pos ; i++)  <br>
+ {  <br>
+ s = s->next; <br> 
+ }  <br>
+ s->info = value;  <br>
+ cout<<"Node updated at position : "<<pos<<" = "<<s->info<<endl;  <br>
+ }  <br>
+ else  <br>
+ cout<<"Position out of range...!!!"<<endl;  <br>
+ }  <br>
+ }  <br>
+}  <br>
+void single_LL::sort()  <br>
+{  <br>
+ struct node *ptr, *s;  <br>
+ int value;  <br>
+ if (start == NULL){}  <br>
+ else  <br>
+ {  <br> 
+ ptr = start;  <br>
+ while (ptr != NULL)  <br>
+ { <br> 
+ for (s = ptr->next;s !=NULL;s = s->next)  <br> <br>
+ {  <br>
+ if (ptr->info > s->info)  <br>
+ { <br> 
+ value = ptr->info;  <br> 
+ ptr->info = s->info;  <br>
+ s->info = value;  <br>
+ }  <br>
+ }  <br>
+ ptr = ptr->next;  <br>
+ }  <br>
+ }  <br>
+}  <br>
+void single_LL::reverse()  <br>
+{  <br>
+ struct node *ptr, *s;  <br>
+ int value;  <br>
+ if (start == NULL){} <br> 
+ else  <br>
+ { <br> 
+ ptr = start;  <br>
+ while (ptr != NULL)  <br>
+ {  <br>
+ for (s = ptr->next;s !=NULL;s = s->next)  <br>
+ {  <br>
+ if (ptr->info < s->info)  <br>
+ { <br> 
+ value = ptr->info;  <br>
+ ptr->info = s->info; <br> 
+ s->info = value;  <br>
+ }  <br>
+ }  <br>
+ ptr = ptr->next; <br> 
+ }  <br>
+ }  <br>
+}  <br>
+void single_LL::search() <br> 
+{  <br>
+ int value, loc = 0, pos = 0, counter = 0;  <br>
+ struct node *s;  <br>
+ s = start;  <br>
+ while (s != NULL)  <br>
+ {  <br>
+ s = s->next;  <br>
+ counter++;  <br>
+ }  <br>
+ if (start == NULL){}  <br>
+ else  <br>
+ {  <br> 
+ cout<<"Enter the value to be searched : ";  <br>
+ cin>>value;  <br>
+ struct node *s;  <br>
+ s = start;  <br>
+ while (s != NULL)  <br>
+ {  <br>
+ pos++;  <br>
+ if (s->info == value)  <br>
+ {  <br>
+ loc++;  <br>
+ if(loc == 1)  <br>
+ cout<<"Element "<<value<<" is found at position "<<pos;  <br>
+ else if(loc <= counter)  <br>
+ cout<<" , "<<pos;  <br>
+ }  <br>
+ s = s->next;  <br>
+ }  <br> 
+ cout<<endl;  <br>
+ if (loc == 0)  <br>
+ cout<<"Element "<<value<<" not found in the list"<<endl;  <br>
+ }  <br>
+} <br> 
+void single_LL::display()  <br>
+{  <br>
+ struct node *temp;  <br>
+ if (start == NULL) <br> 
+ cout<<"Linked list is empty...!!!"<<endl;  <br>
+ else  <br>
+ { <br> 
+ cout<<"Linked list contains : "; <br> 
+ temp = start;  <br>
+ while (temp != NULL)  <br>
+ {  <br>
+ cout<<temp->info<<" "; <br> 
+ temp = temp->next;  <br>
+ }  <br>
+ cout<<endl;  <br>
+} <br>
 }<br><br>
+	![image](https://user-images.githubusercontent.com/97940332/154902067-c5f98269-4c2a-4c5e-a48a-a439685e6cad.png)
+![image](https://user-images.githubusercontent.com/97940332/154902173-dbe3e271-58b9-4f1f-8786-e03433155724.png)
+![image](https://user-images.githubusercontent.com/97940332/154902317-455d2c87-2055-4d28-a1d9-12cdf029d851.png)
+
 
 
 		 
