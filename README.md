@@ -615,12 +615,39 @@ return 0; <br>
 	
 **OUTPUT:**
 	
-	
-	
-	
 	![image](https://user-images.githubusercontent.com/97940332/154905267-fdcfe64d-7ebf-4068-b88d-4c1149373b05.png)
 	
 	
+	
+4.//C++ Program to implement reverse order of array elements
+#include <iostream>  <br>
+using namespace std;<br>  
+int main ()  <br>
+{  <br>
+    int arr[50], num, temp, i, j; <br> 
+    cout << " Please, enter the total no. you want to enter: ";  <br>
+    cin >> num;  <br>
+    cout << " Enter the element : ";  <br>
+    for (i = 0; i < num; i++)  <br>
+    {  <br>
+        cin >> arr[i];<br>  
+    }  <br>
+     for ( i = 0, j = num - 1; i < num/2; i++, j--)  <br>
+    {   <br>  
+        temp = arr[i];  <br>
+        arr[i] = arr[j];  <br>
+        arr[j] = temp;  <br>
+    }  <br>
+    cout << "\n Reverse order of an array: " << endl; <br> 
+    for ( i = 0; i < num; i++) <br> 
+    {  <br>
+        cout << arr[i] << " "; <br> 
+    }  <br>
+    return 0;<br>  
+}  <br>
+	**OUTPUT:**
+	![image](https://user-images.githubusercontent.com/97940332/154906061-70cfb7f0-3086-4b25-83fb-27ea3991ea4e.png)
+
 
 
 
