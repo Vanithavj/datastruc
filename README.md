@@ -1,4 +1,4 @@
-**C++ program to search a element using binary search**
+1.**C++ program to search a element using binary search**
 
 #include<iostream><br>
 using namespace std;<br>
@@ -31,3 +31,7 @@ int main(void)<br>
 }<br>
   
   ![image](https://user-images.githubusercontent.com/97940332/154891861-b9e5a4d9-62be-4861-8e65-2f43fd7c4992.png)
+![image](https://user-images.githubusercontent.com/97940332/154892327-b30d97c9-a590-47ec-be74-120bb284d01a.png)
+
+   
+   
