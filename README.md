@@ -619,7 +619,7 @@ return 0; <br>
 	
 	
 	
-4.//C++ Program to implement reverse order of array elements
+**4.//C++ Program to implement reverse order of array elements**
 #include <iostream>  <br>
 using namespace std;<br>  
 int main ()  <br>
@@ -646,11 +646,206 @@ int main ()  <br>
     return 0;<br>  
 }  <br>
 	**OUTPUT:**
+	
+	
 	![image](https://user-images.githubusercontent.com/97940332/154906061-70cfb7f0-3086-4b25-83fb-27ea3991ea4e.png)
 
 
+**5.//Program to implementing stack using array.**
+#include<stdio.h><br>
+int stack[100],choice,n,top,x,i;<br>
+void push(void);<br>
+void pop(void);<br>
+void display(void);<br>
+int main()<br>
+{<br>
+    //clrscr();<br>
+    top=-1;<br>
+    printf("\n Enter the size of STACK[MAX=100]:");<br>
+    scanf("%d",&n);<br>
+    printf("\n\t STACK OPERATIONS USING ARRAY");<br>
+    printf("\n\t--------------------------------");<br>
+    printf("\n\t 1.PUSH\n\t 2.POP\n\t 3.DISPLAY\n\t 4.EXIT");<br>
+    do<br>
+    {<br>
+        printf("\n Enter the Choice:");<br>
+        scanf("%d",&choice);<br>
+        switch(choice)<br>
+        {<br>
+            case 1:<br>
+            {<br>
+                push();<br>
+                break;<br>
+            }<br>
+            case 2:<br>
+            {<br>
+                pop();<br>
+                break;<br>
+            }<br>
+            case 3:<br>
+            {<br>
+                display();<br>
+                break;<br>
+            }<br>
+            case 4:<br>
+            {<br>
+                printf("\n\t EXIT POINT ");<br>
+                break;<br>
+            }<br>
+            default:<br>
+            {<br>
+                printf ("\n\t Please Enter a Valid Choice(1/2/3/4)");<br>
+            }<br>
+           }<br>
+	}<br>
+    while(choice!=4);<br>
+    return 0;<br>
+}<br>
+void push()<br>
+{<br>
+    if(top>=n-1)<br>
+    {<br>
+        printf("\n\tSTACK is over flow");<br>
+     }<br>
+    else<br>
+    {<br>
+        printf(" Enter a value to be pushed:");<br>
+        scanf("%d",&x);<br>
+        top++;<br>
+        stack[top]=x;<br>
+    }<br>
+}<br>
+void pop()<br>
+{<br>
+    if(top<=-1)<br>
+    {<br>
+        printf("\n\t Stack is under flow");<br>
+    }<br>
+    else<br>
+    {<br>
+        printf("\n\t The popped elements is %d",stack[top]);<br>
+        top--;<br>
+    }<br>
+}<br>
+void display()<br>
+{<br>
+    if(top>=0)<br>
+    {<br>
+        printf("\n The elements in STACK \n");<br>
+        for(i=top; i>=0; i--)<br>
+            printf("\n%d",stack[i]);<br>
+        printf("\n Press Next Choice");<br>
+    }<br>
+    else<br>
+    {<br>
+        printf("\n The STACK is empty");<br>
+    }<br>
+}<br>
+	
+**OUTPUT:**
+	
+	![image](https://user-images.githubusercontent.com/97940332/154907349-69233a1a-9bc2-46d8-a3a4-83aafb8358e3.png)
+
+	
+	
+**6.//Write a C++ program to split the given linked list into 2 in such a way that the given element ele must be the first node of second linked list	**
+#include<iostream><br>
+using namespace std;<br>
+struct Node<br>
+{<br>
+	int value;<br>
+	struct Node *next;<br>
+};<br>
+struct Node*head=NULL;<br>
+struct  Node*sHead=NULL;<br>
+struct Node*temp=NULL;<br>
+void insert(int new_data)<br>
+{<br>
+struct Node *new_node=new Node();<br>
+	new_node->value=new_data;<br>
+	new_node->next=head;<br>
+	head=new_node;<br>
+}<br>
+int n;<br>
+int ele;<br>
+int splitIndex;<br>
+int main()<br>
+{<br>
+	int i;<br>
+	cout<<"Enter number of elements you want in the list:\t";<br>
+	cin>>n;<br>
+	cout<<"Enter elements:"<<endl;<br>
+	for(i=0;i<n;i++)<br>
+	{<br>
+		cin>>ele;<br>
+		insert(ele);<br>
+	}<br>
+	cout<<"\nList of elements:"<<endl;<br>
+	Node *t;<br>
+	t=head;<br>
+	while(t!=NULL)<br>
+	{<br>
+		cout<<t->value<<"\t";<br>
+		t=t->next;<br>
+	}<br>
+	cout<<"\n\nEnter the position you want the list to split:";<br>
+	cin>>splitIndex;<br>
+	while(splitIndex<0||splitIndex>n-1)<br>
+	{<br>
+		cout<<"Invalid position.Try again"<<endl;<br>
+		cin>>splitIndex;<br>
+	}<br>
+	temp=head;<br>
+	for(i=0;i<=splitIndex;i++)<br>
+	{<br>
+		if(i==splitIndex-1)<br>
+		{<br>
+			Node *tN;<br>
+			tN=temp->next;<br>
+			sHead=tN;<br>
+			temp->next=NULL;<br>
+			break;<br>
+		}<br>
+		temp=temp->next;<br>
+	}<br>
+	temp=head;<br>
+	if(temp==NULL)<br>
+	{<br>
+		cout<<"\nFirst list is empty"<<endl;<br>
+	}else<br>
+	{<br>
+	cout<<"\n\nFirst list element is:"<<endl;<br>
+	while(temp!=NULL)<br>
+	{<br>
+	cout<<temp->value<<"\t";<br>
+	temp=temp->next;<br>
+	}<br>	
+	}<br>
+	temp=sHead;<br>
+	if(temp==NULL)<br>
+	{<br>
+		cout<<"\nSecond list is empty"<<endl;<br>
+	}<br>
+	else<br>
+	{<br>
+		cout<<"\n\nSecond list elements is:"<<endl;<br>
+		while(temp!=NULL)<br>
+		{<br>
+			cout<<temp->value<<"\t";<br>
+			temp=temp->next;<br>
+		}<br>
+	}<br>
+	return 0;<br>
+}<br><br><br>
+	
+**OUTPUT:**
+	
+	![image](https://user-images.githubusercontent.com/97940332/154908510-d520df33-0f3c-4995-9e8f-3f10966a834b.png)
+	![image](https://user-images.githubusercontent.com/97940332/154908687-b6619d22-e708-47c6-856d-11a82369c3ca.png)
 
 
+	
+	
 
 		 
 
