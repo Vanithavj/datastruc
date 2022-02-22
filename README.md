@@ -861,12 +861,348 @@ int main()<br>
 	
 	![image](https://user-images.githubusercontent.com/97940332/154908510-d520df33-0f3c-4995-9e8f-3f10966a834b.png)
 	![image](https://user-images.githubusercontent.com/97940332/154908687-b6619d22-e708-47c6-856d-11a82369c3ca.png)
+
 	
-	7.
-	![image](https://user-images.githubusercontent.com/97940332/155080654-b9477903-f8f9-4502-bb64-94b385bce01c.png)
+	
+	
+	
+7.
+	
+# include <iostream><br> 
+# include <cstdlib> <br>
+using namespace std; <br>
+struct node <br>
+{ <br>
+ int info;<br> 
+ struct node *left; <br>
+ struct node *right; <br>
+}*root; <br>
+class BST <br>
+{ <br>
+ public:<br> 
+ void find(int, node **, node **); <br>
+ void insert(node *, node *); <br>
+ void del(int); <br>
+ void case_a(node *,node *); <br>
+ void case_b(node *,node *); <br>
+ void case_c(node *,node *); <br>
+ void preorder(node *); <br>
+ void inorder(node *); <br>
+ void postorder(node *); <br>
+ void display(node *, int);<br> 
+ BST() <br>
+{<br>
+	root=NULL;<br>
+}<br>
+};<br>
+int main()<br>
+{<br>
+	int choice,num;<br>
+	BST bst;<br>
+	node *temp;<br>
+	while(1)<br>
+	{<br>
+		cout<<"------------------"<<endl;<br>
+		cout<<"Operations on BST"<<endl;<br>
+		cout<<"------------------"<<endl;<br>
+		cout<<"1.Insert element"<<endl;<br>
+		cout<<"2.Delete element"<<endl;<br>
+		cout<<"3.Inorder traversal"<<endl;<br>
+		cout<<"4.Preorder traversal"<<endl;<br>
+		cout<<"5.Postorder traversal"<<endl;<br>
+		cout<<"6.Display"<<endl;<br>
+		cout<<"7.Quit"<<endl;<br>
+		cout<<"Enter your choice:";<br>
+		 cin>>choice; <br>
+ switch(choice) <br>
+ { <br>
+ case 1: <br>
+ temp = new node; <br>
+ cout<<"Enter the number to be inserted : "; <br>
+ cin>>temp->info; <br>
+ bst.insert(root, temp); <br>
+ break; <br>
+ case 2: <br>
+ if (root == NULL) <br>
+ { <br>
+ cout<<"Tree is empty, nothing to delete"<<endl; <br>
+ continue; <br>
+ } <br>
+ cout<<"Enter the number to be deleted : "; <br>
+ cin>>num; <br>
+ bst.del(num); <br>
+ break; <br>
+ case 3:<br> 
+ cout<<"Inorder Traversal of BST:"<<endl; <br>
+ bst.inorder(root); <br>
+ cout<<endl; <br>
+ break; <br>
+ case 4: <br>
+ cout<<"Preorder Traversal of BST:"<<endl; <br>
+ bst.preorder(root); <br>
+ cout<<endl; <br>
+ break; <br>
+ case 5:<br> 
+ cout<<"Postorder Traversal of BST:"<<endl; <br>
+ bst.postorder(root); <br>
+ cout<<endl; <br>
+ break; <br>
+ case 6:<br> 
+ cout<<"Display BST:"<<endl; <br>
+ bst.display(root,1); <br>
+ cout<<endl; <br>
+ break; <br>
+ case 7: <br>
+ exit(1); <br>
+ default: <br>
+ cout<<"Wrong choice"<<endl; <br>
+ } <br>
+ } <br>
+} <br>
+void BST::find(int item, node **par, node **loc) <br>
+{ <br>
+ node *ptr, *ptrsave; <br>
+ if (root == NULL) <br>
+ { <br>
+ *loc = NULL; <br>
+ *par = NULL; <br>
+ return; <br>
+ } <br>
+ if (item == root->info) <br>
+ { <br>
+ *loc = root; <br>
+ *par = NULL;<br> 
+ return; <br>
+ } <br>
+ if (item < root->info) <br>
+ ptr = root->left; <br>
+ else <br>
+ ptr = root->right; <br>
+ ptrsave = root; <br>
+ while (ptr != NULL) <br>
+ { <br>
+ if (item == ptr->info) <br>
+ { <br>
+ *loc = ptr; <br>
+ *par = ptrsave; <br>
+ return; <br>
+ } <br>
+ ptrsave = ptr; <br>
+ if (item < ptr->info)<br> 
+ ptr = ptr->left; <br>
+ else <br>
+ ptr = ptr->right; <br>
+ } <br>
+ *loc = NULL; <br>
+ *par = ptrsave; <br>
+} <br>
+void BST::insert(node *tree, node *newnode) <br>
+{ <br>
+ if (root == NULL) <br>
+ { <br>
+ root = new node; <br>
+ root->info = newnode->info;<br> 
+ root->left = NULL; <br>
+ root->right = NULL; <br>
+ cout<<"Root Node is Added"<<endl; <br>
+ return; <br>
+ } <br>
+ if (tree->info == newnode->info) <br>
+ { <br>
+ cout<<"Element already in the tree"<<endl; <br>
+ return; <br>
+ } <br>
+ if (tree->info > newnode->info) <br>
+ { <br>
+ if (tree->left != NULL) <br>
+ { <br>
+ insert(tree->left, newnode); <br>
+ } <br>
+ else <br>
+ { <br>
+ tree->left = newnode; <br>
+ (tree->left)->left = NULL; <br>
+ (tree->left)->right = NULL; <br>
+ cout<<"Node Added To Left"<<endl; <br>
+ return;<br> 
+ } <br>
+ } <br>
+ else <br>
+ { <br>
+ if (tree->right != NULL) <br>
+ { <br>
+ insert(tree->right, newnode); <br>
+ } <br>
+ else <br>
+ { <br>
+ tree->right = newnode; <br>
+ (tree->right)->left = NULL;<br> 
+ (tree->right)->right = NULL;<br> 
+ cout<<"Node Added To Right"<<endl; <br>
+ return; <br>
+ } <br>
+ } <br>
+} <br>
+
+void BST::del(int item) <br>
+{ <br>
+ node *parent, *location; <br>
+ if (root == NULL) <br>
+ { <br>
+ cout<<"Tree empty"<<endl; <br>
+ return; <br>
+ } <br>
+ find(item, &parent, &location); <br>
+ if (location == NULL) <br>
+ { <br>
+ cout<<"Item not present in tree"<<endl; <br>
+ return;<br> 
+ } <br>
+ if (location->left == NULL && location->right == NULL) <br>
+ case_a(parent, location); <br>
+ if (location->left != NULL && location->right == NULL) <br>
+ case_b(parent, location); <br>
+ if (location->left == NULL && location->right != NULL) <br>
+ case_b(parent, location); <br>
+ if (location->left != NULL && location->right != NULL) <br>
+ case_c(parent, location); <br>
+ free(location); <br>
+} <br>
+ void BST::case_a(node *par, node *loc ) <br>
+{ <br>
+ if (par == NULL) <br>
+ { <br>
+ root = NULL; <br>
+ } <br>
+ else <br>
+ { <br>
+ if (loc == par->left) <br>
+ par->left = NULL; <br>
+ else <br>
+ par->right = NULL; <br>
+ } <br>
+} <br>
+ void BST::case_b(node *par, node *loc) <br>
+{ <br>
+ node *child; <br>
+ if (loc->left != NULL) <br>
+ child = loc->left; <br>
+ else <br>
+ child = loc->right; <br>
+ if (par == NULL) <br>
+ { <br>
+ root = child; <br>
+ } <br>
+ else <br>
+ { <br>
+ if (loc == par->left) <br>
+ par->left = child;<br> 
+ else <br>
+ par->right = child; <br>
+ } <br>
+} <br>
+ void BST::case_c(node *par, node *loc)<br> 
+{ <br>
+ node *ptr, *ptrsave, *suc, *parsuc; <br>
+ ptrsave = loc; <br>
+ ptr = loc->right;<br> 
+ while (ptr->left != NULL) <br>
+ { <br>
+ ptrsave = ptr; <br>
+ ptr = ptr->left; <br>
+ } <br>
+ suc = ptr; <br>
+ parsuc = ptrsave; <br>
+ if (suc->left == NULL && suc->right == NULL) <br>
+ case_a(parsuc, suc); <br>
+ else <br>
+ case_b(parsuc, suc); <br>
+ if (par == NULL) <br>
+ { <br>
+ root = suc; <br>
+ } <br>
+ else <br>
+ { <br>
+ if (loc == par->left)<br> 
+ par->left = suc; <br>
+ else <br>
+ par->right = suc<br>; 
+ } <br>
+ suc->left = loc->left; <br>
+ suc->right = loc->right; <br>
+} <br>
+ void BST::preorder(node *ptr) <br>
+{ <br>
+ if (root == NULL) <br>
+ { <br>
+ cout<<"Tree is empty"<<endl; <br>
+ return; <br>
+ } <br>
+ if (ptr != NULL) <br>
+ { <br>
+ cout<<ptr->info<<" "; <br>
+ preorder(ptr->left); <br>
+ preorder(ptr->right); <br>
+ } <br>
+} <br>
+void BST::inorder(node *ptr) <br>
+{ <br>
+ if (root == NULL) <br>
+ { <br>
+ cout<<"Tree is empty"<<endl; <br>
+ return; <br>
+ } 
+ if (ptr != NULL) <br>
+ { 
+ inorder(ptr->left); <br>
+ cout<<ptr->info<<" "; <br>
+ inorder(ptr->right); <br>
+ } <br>
+} <br>
+ 
+void BST::postorder(node *ptr) <br>
+{ <br>
+ if (root == NULL) <br>
+ { <br>
+ cout<<"Tree is empty"<<endl; <br>
+ return; <br>
+ } <br>
+ if (ptr != NULL) <br>
+ { <br>
+ postorder(ptr->left); <br>
+ postorder(ptr->right); <br>
+ cout<<ptr->info<<" "; <br>
+ } <br>
+} <br>
+void BST::display(node *ptr, int level) <br>
+{ <br>
+ int i; <br>
+ if (ptr != NULL) <br>
+ { <br>
+ display(ptr->right, level+1); <br>
+ cout<<endl;<br> 
+ if (ptr == root) <br>
+ cout<<"Root->: "; <br>
+ else<br> 
+ { <br>
+ for (i = 0;i < level;i++) <br>
+ cout<<" "; <br>
+ }<br> 
+ cout<<ptr->info; <br>
+ display(ptr->left, level+1); <br>
+ } <br>
+}<br>
+
+	**OUTPUT:**
+	
+
+
+
+![image](https://user-images.githubusercontent.com/97940332/155080654-b9477903-f8f9-4502-bb64-94b385bce01c.png)
 ![image](https://user-images.githubusercontent.com/97940332/155080747-78e6416d-175f-4a7e-8d5a-b7483d428e1e.png)
 ![image](https://user-images.githubusercontent.com/97940332/155080815-b4d8a7f0-3a8c-4a7a-a4b1-261274195c72.png)
 ![image](https://user-images.githubusercontent.com/97940332/155081162-ff981b2d-1ce3-4818-9c19-b4813c271249.png)
+![image](https://user-images.githubusercontent.com/97940332/155081454-7306a119-9553-4c6a-a1e5-a28a24062081.png)
 
 	
 	
