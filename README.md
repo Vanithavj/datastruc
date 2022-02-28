@@ -772,6 +772,9 @@ void display()<br>
 	
 	
 **6.//Write a C++ program to split the given linked list into 2 in such a way that the given element ele must be the first node of second linked list	**
+	
+	
+	
 #include<iostream><br>
 using namespace std;<br>
 struct Node<br>
@@ -878,10 +881,12 @@ int main()<br>
 	ii.Delete an element from a binary serch tree.
 	Display the tree using inorder,preorder and postorder traversal method.**
 	
+
 	
 	
-# include <iostream><br> 
-# include <cstdlib> <br>
+	
+#include <iostream><br> 
+#include <cstdlib> <br>
 using namespace std; <br>
 struct node <br>
 { <br>
