@@ -866,7 +866,13 @@ int main()<br>
 	
 	
 	
-7.
+**7.Construct a binary searchtree (BST) to support the following operations.
+	Given a key,perform a search in the BST.If the key is found then display "key found".
+	i.Insert an element into a binary search tree.
+	ii.Delete an element from a binary serch tree.
+	Display the tree using inorder,preorder and postorder traversal method.**
+	
+	
 	
 # include <iostream><br> 
 # include <cstdlib> <br>
