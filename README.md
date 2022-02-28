@@ -581,7 +581,8 @@ void single_LL::display()  <br>
 ![image](https://user-images.githubusercontent.com/97940332/154904040-ee819643-70d6-4262-9ab1-17c539236d0e.png)
 
 	
-3.//C++ program to implement addition of 2 Arrays.
+**3.//C++ program to implement addition of 2 Arrays.**
+	
 	
 #include<iostream> <br> 
 using namespace std; <br>
@@ -622,6 +623,8 @@ return 0; <br>
 	
 	
 **4.//C++ Program to implement reverse order of array elements**
+	
+	
 #include <iostream>  <br>
 using namespace std;<br>  
 int main ()  <br>
@@ -654,6 +657,9 @@ int main ()  <br>
 
 
 **5.//Program to implementing stack using array.**
+	
+	
+	
 #include<stdio.h><br>
 int stack[100],choice,n,top,x,i;<br>
 void push(void);<br>
