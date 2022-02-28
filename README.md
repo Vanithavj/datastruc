@@ -1224,7 +1224,60 @@ void BST::display(node *ptr, int level) <br>
 	
 	
 	
+**8.// C++ program for implementation of Heap Sort**<br>
+#include <iostream><br>
+using namespace std;<br>
+void heapify(int arr[], int n, int i)<br>
+{<br>
+    int largest = i; <br>
+    int l = 2 * i + 1; <br>
+    int r = 2 * i + 2; <br>
+  if (l < n && arr[l] > arr[largest])<br>
+        largest = l;<br>
+    if (r < n && arr[r] > arr[largest])<br>
+        largest = r;<br>
+    if (largest != i)<br> {<br>
+        swap(arr[i], arr[largest]);<br>
+        heapify(arr, n, largest);<br>
+    }<br>
+}<br>
+void heapSort(int arr[], int n)<br>
+{<br>
+    for (int i = n / 2 - 1; i >= 0; i--)<br>
+        heapify(arr, n, i);<br>
+  
+    for (int i = n - 1; i >= 0; i--)<br> {<br>
+        swap(arr[0], arr[i]);<br>
+        heapify(arr, i, 0);<br>
+    }<br>
+}<br>
+void printArray(int arr[], int n)<br>
+{<br>
+    for (int i = 0; i < n; ++i)<br>
+        cout << arr[i] << " ";<br>
+    cout << "\n";<br>
+}<br>
+int main()<br>
+{<br>
+    int arr[50] ,n;<br>
+    cout<<"Enter the number of element to be sorted:";<br>
+    cin>>n;<br>
+    
+    for(int i=0;i<n;i++)<br>
+    {<br>
+    	cout<<"Enter element "<<i+1<<":";<br>
+    	cin>>arr[i];<br>
+	}<br>
+  heapSort(arr, n);<br>
+  
+    cout << "Sorted array is \n";<br>
+    printArray(arr, n);<br>
+}<br>
 	
+**OUTPUT:	**
+	
+	![image](https://user-images.githubusercontent.com/97940332/155941254-9e58a578-d4b9-43e7-b594-a82c6ff29c8d.png)
+
 	
 	
 	
