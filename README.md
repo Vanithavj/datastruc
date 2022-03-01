@@ -1224,7 +1224,7 @@ void BST::display(node *ptr, int level) <br>
 	
 	
 	
-**8.// C++ program for implementation of Heap Sort**<br>
+**8.// C++ program for implementation min heap using  Heap Sort**<br>
 #include <iostream><br>
 using namespace std;<br>
 void heapify(int arr[], int n, int i)<br>
@@ -1280,6 +1280,66 @@ int main()<br>
 	
 	
 	![image](https://user-images.githubusercontent.com/97940332/155941254-9e58a578-d4b9-43e7-b594-a82c6ff29c8d.png)
+	
+	
+**9.// C++ program for implementation max heap using Heap Sort**
+	
+	
+#include <bits/stdc++.h><br>
+using namespace std;<br>
+ void heapify(int arr[], int n, int i)
+{<br>
+    int smallest = i; <br>
+    int l = 2 * i + 1;<br>
+    int r = 2 * i + 2;<br> 
+    if (l < n && arr[l] < arr[smallest])<br>
+        smallest = l;<br>
+    if (r < n && arr[r] < arr[smallest])<br>
+        smallest = r;
+    if (smallest != i) <br>{<br>
+        swap(arr[i], arr[smallest]);<br>
+        heapify(arr, n, smallest);<br>
+    }<br>
+}<br>
+void heapSort(int arr[], int n)<br>
+{
+    for (int i = n / 2 - 1; i >= 0; i--)<br>
+        heapify(arr, n, i);<br>
+ 
+    for (int i = n - 1; i >= 0; i--) <br>
+	{<br>
+        swap(arr[0], arr[i]);<br>
+        heapify(arr, i, 0);<br>
+    }<br>
+}<br>
+void printArray(int arr[], int n)<br>
+{<br>
+    for (int i = 0; i < n; ++i)<br>
+        cout << arr[i] << " ";<br>
+    cout << "\n";<br>
+}<br>
+int main()<br>
+{<br>
+    int n,i,arr[50];<br>
+    cout<<"Enter the number of elements to be sorted: ";<br>
+    cin>>n;<br>
+    for(i=0;i<n;i++)<br>
+    {<br>
+    	cout<<"Enter element "<<i+1<<" :";<br>
+    	cin>>arr[i];<br>
+	}<br>
+ 
+    heapSort(arr, n);<br>
+ 
+    cout << "Sorted array is \n";<br>
+    printArray(arr, n);<br>
+}<br>
+<br>
+	
+**OUTPUT:**
+	
+	![image](https://user-images.githubusercontent.com/97940332/156103830-f50189e4-2c6a-4347-bf6b-b19d67988aea.png)
+
 	
 	
 	
