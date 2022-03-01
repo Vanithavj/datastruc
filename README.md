@@ -1274,7 +1274,38 @@ int main()<br>
     printArray(arr, n);<br>
 }<br>
 	
-**OUTPUT:	**
+**OUTPUT:**
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	![image](https://user-images.githubusercontent.com/97940332/155941254-9e58a578-d4b9-43e7-b594-a82c6ff29c8d.png)
 
