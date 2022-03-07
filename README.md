@@ -1279,7 +1279,17 @@ int main()<br>
 **OUTPUT:**
 	
 	
-	![image](https://user-images.githubusercontent.com/97940332/155941254-9e58a578-d4b9-43e7-b594-a82c6ff29c8d.png)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+![image](https://user-images.githubusercontent.com/97940332/155941254-9e58a578-d4b9-43e7-b594-a82c6ff29c8d.png)
 	
 	
 **9.// C++ program for implementation max heap using Heap Sort**
@@ -1337,6 +1347,20 @@ int main()<br>
 <br>
 	
 **OUTPUT:**
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	![image](https://user-images.githubusercontent.com/97940332/156103830-f50189e4-2c6a-4347-bf6b-b19d67988aea.png)
 
