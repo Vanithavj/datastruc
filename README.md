@@ -1346,7 +1346,7 @@ int main()<br>
 }<br>
 <br>
 	
-**OUTPUT:**
+**OUTPUT:** ![image](https://user-images.githubusercontent.com/97940332/156103830-f50189e4-2c6a-4347-bf6b-b19d67988aea.png)
 	
 	
 	
@@ -1362,7 +1362,15 @@ int main()<br>
 	
 	
 	
-	![image](https://user-images.githubusercontent.com/97940332/156103830-f50189e4-2c6a-4347-bf6b-b19d67988aea.png)
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	
