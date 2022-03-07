@@ -1224,7 +1224,7 @@ void BST::display(node *ptr, int level) <br>
 	
 	
 	
-**8.// C++ program for implementation min heap using  Heap Sort**<br>
+**8.// C++ program for implementation min heap Sort**<br>
 #include <iostream><br>
 using namespace std;<br>
 void heapify(int arr[], int n, int i)<br>
@@ -1292,7 +1292,7 @@ int main()<br>
 ![image](https://user-images.githubusercontent.com/97940332/155941254-9e58a578-d4b9-43e7-b594-a82c6ff29c8d.png)
 	
 	
-**9.// C++ program for implementation max heap using Heap Sort**
+**9.// C++ program for implementation max heap  Sort**
 	
 	
 #include <bits/stdc++.h><br>
@@ -1347,6 +1347,58 @@ int main()<br>
 <br>
 	
 **OUTPUT:** ![image](https://user-images.githubusercontent.com/97940332/156103830-f50189e4-2c6a-4347-bf6b-b19d67988aea.png)
+	
+**10.C++ Program to implement maxheap.**
+	
+#include <iostream><br>
+#include <conio.h><br>
+using namespace std;<br>
+void max_heap(int *a, int m, int n)<br>{<br>
+   int j, t;<br>
+   t= a[m];<br>
+   j = 2 * m;<br>
+   while (j <= n)<br> {<br>
+      if (j < n && a[j+1] > a[j])<br>
+         j = j + 1;<br>
+      if (t > a[j])<br>
+         break;<br>
+      else if (t <= a[j])<br> {<br>
+         a[j/2] = a[j];<br>
+         j = 2 * j;<br>
+      }<br>
+   }<br>
+   a[j/2] = t;<br>
+   return;<br>
+}<br>
+void build_maxheap(int *a, int n)<br> {<br>
+   int k;<br>
+   for(k = n/2; k >= 1; k--)<br> {<br>
+      max_heap(a,k,n);<br>
+   }<br>
+}<br>
+int main() <br>
+{<br>
+   int n, i;<br>
+   cout<<"Enter number of elements of the array:\n";<br>
+   cin>>n;<br>
+   int a[30];<br>
+   for (i = 1; i <= n; i++)<br> {<br>
+      cout<<"Enter element:"<<" "<<(i)<<endl;<br>
+      cin>>a[i];<br>
+   }<br>
+   build_maxheap(a, n);<br>
+   cout<<"Max Heap:\n";<br>
+   for (i = 1; i <= n; i++) <br>{<br>
+      cout<<a[i]<<endl;<br>
+   }<br>
+   getch();<br>
+}<br>
+	<br><br><br>
+	**OUTPUT:**
+	![image](https://user-images.githubusercontent.com/97940332/156984057-d6826aa1-d6d4-4e83-9be6-8828dde2c10b.png)
+
+	
+	11.C++ program to implement min 
 	
 	
 	
