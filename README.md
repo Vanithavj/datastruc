@@ -1518,12 +1518,13 @@ cin>>sum;<br>
 task.findSubset(arr, size, sum);<br>
 return 0;<br>
 }<br>
+<br><br><br>
+	<br><br><br>	
 	
-	<br><br><br><br><br><br>
+**OUTPUT:**
 	
-	**OUTPUT:**
+	![image](https://user-images.githubusercontent.com/97940332/159217106-e368aae9-868b-48a3-b644-5659754e5c50.png)	
 	
-	![image](https://user-images.githubusercontent.com/97940332/159217106-e368aae9-868b-48a3-b644-5659754e5c50.png)
 
 
 	
