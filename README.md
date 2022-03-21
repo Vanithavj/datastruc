@@ -1523,6 +1523,12 @@ return 0;<br>
 	
 **OUTPUT:**
 	
+	
+	
+	
+	
+	
+	
 	![image](https://user-images.githubusercontent.com/97940332/159217106-e368aae9-868b-48a3-b644-5659754e5c50.png)	
 	
 
