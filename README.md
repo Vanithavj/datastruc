@@ -1447,6 +1447,84 @@ int main() <br>
 	<br><br><br>
 	**OUTPUT:**
 	![image](https://user-images.githubusercontent.com/97940332/156986498-206941eb-d97c-4d83-af72-679638c1e77e.png)
+	
+	
+	
+**12.C++ program to find a subset of given set S={s1,s2,s3........sn} of n positive integer. Whose sum is equal to given positive integer d.**
+	
+#include <iostream><br>
+using namespace std;<br>
+class Subset<br>
+{<br>
+	public:<br>
+    void printSum(int result[], int front, int tail)<br>
+    {<br>
+    	cout << "{";<br>
+		for (int i = front; i < tail; ++i)<br>
+		{<br>
+			if (result[i] != INT_MAX)<br>
+			{<br>
+				cout << " " << result[i] << " ";<br>
+			}<br>
+		}<br>
+		cout << "}\n";<br>
+	}<br>
+	void subsetSum(int arr[], int result[], int sum, int size, int current_sum, int location)<br>
+	{<br>
+		if (location == -1)<br>
+		{<br>
+			return;<br>
+		}<br>
+		this->subsetSum(arr, result, sum, size, current_sum, location - 1);<br>
+		result[location] = arr[location];<br>
+		if (current_sum + arr[location] == sum)<br>
+		{<br>
+			this->printSum(result, location, size);<br>
+		}<br>
+		this->subsetSum(arr, result, sum, size, current_sum + arr[location], location - 1);<br>
+		result[location] = INT_MAX;<br>
+	}<br>
+	void findSubset(int arr[], int size, int sum)<br>
+	{<br>
+		if (size <= 0)<br>
+		{<br>
+			return;<br>
+		}<br>
+		int result[size];<br>
+		for (int i = 0; i < size; ++i)	<br>	
+		{<br>
+			result[i] = INT_MAX;<br>
+		}<br>
+		
+		this->subsetSum(arr, result, sum, size, 0, size - 1);<br>
+	}<br>
+};<br>
+int main()<br>
+{<br>
+	Subset task = Subset();<br>
+	int n;<br>
+	cout<<"Enter the size of the array:";<br>
+	cin>>n;<br>
+	int arr[n]={};<br>
+	cout<<"Enter the array element:\n";<br>
+	for(int i=0;i<n;i++)<br>
+	{<br>
+		cin>>arr[i];<br>
+	}<br>
+	int size = sizeof(arr) / sizeof(arr[0]);<br>
+int sum;<br>
+cout<<"Enter the sum element: ";<br>
+cin>>sum;<br>
+task.findSubset(arr, size, sum);<br>
+return 0;<br>
+}<br>
+	
+	<br><br><br><br><br><br>
+	
+	**OUTPUT:**
+	
+	![image](https://user-images.githubusercontent.com/97940332/159217106-e368aae9-868b-48a3-b644-5659754e5c50.png)
+
 
 	
 	
