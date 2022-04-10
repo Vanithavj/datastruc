@@ -1,3 +1,69 @@
+**example1:Add 10 numbers using different loops and note the time complexity of each
+
+**
+
+#include<iostream>
+
+using namespace std;
+int main()<br>
+{<br>
+	int i,a[10],sum=0,num,opt;<br>
+	cout<<"Enter the number of elements:";<br>
+	cin>>num;<br>
+	cout<<"Enter the elements:";<br>
+	for(i=0;i<num;i++)<br>
+	{<br>
+		cin>>a[i];<br>
+	}<br>
+	cout<<"Select a loop which you want: \n1.For loop \n2.While loop \n3.Do-While loop\n Your choice: "<<endl;<br>
+	cin>>opt;<br>
+	switch(opt)<br>
+	{<br>
+		case 1: <br>
+		for(i=0;i<num;i++)<br>
+		{<br>
+		sum=sum+a[i];<br>
+		}<br>
+		cout<<"\n sum= "<<sum<<endl;<br>
+		break;<br>
+		case 2:<br>
+		i=0;	<br>
+		while(i<num)<br>
+		{<br>
+			sum=sum+a[i];<br>
+			i++;<br>
+		}<br>
+		cout<<"\nSum= "<<sum<<endl;<br>
+		break;<br>
+		case 3:<br>
+		i=0;<br>	
+		do <br>
+		{<br>
+		 sum=sum+a[i];<br>
+		 i++;<br>
+		}while(i<num);<br>
+		cout<<"\n Sum= "<<sum<<endl;<br>
+		break;<br>
+		default:<br>
+		cout<<num<<"is Invalid case ";<br>
+		break;<br>
+	}<br>
+}<br><br><br><br>
+	**OUTPUT:**
+	![image](https://user-images.githubusercontent.com/97940332/162630041-f6ccd4df-d88b-4b4d-b68b-cefa00cf2a78.png)
+![image](https://user-images.githubusercontent.com/97940332/162630089-e22b4527-b8b6-40ae-95c9-28fae84500f9.png)
+![image](https://user-images.githubusercontent.com/97940332/162630115-68d26f96-c2ff-456e-a5cd-3968bf1b06e4.png)
+![image](https://user-images.githubusercontent.com/97940332/162630133-2c1580bd-ab62-4899-936b-146dfee806b5.png)
+
+
+
+
+
+
+
+
+
+
 **1.//C++ program to search a element using binary search**
 
 #include<iostream><br>
