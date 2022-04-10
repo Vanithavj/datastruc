@@ -1,10 +1,8 @@
-**example1:Add 10 numbers using different loops and note the time complexity of each
-
-**
+**example1:Add 10 numbers using different loops and note the time complexity of each**
 
 #include<iostream>
 
-using namespace std;
+using namespace std;<br>
 int main()<br>
 {<br>
 	int i,a[10],sum=0,num,opt;<br>
