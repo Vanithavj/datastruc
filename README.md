@@ -1596,73 +1596,81 @@ return 0;<br>
 	
 #include <iostream>
 #include<conio.h>
-using namespace std;
-void Merge(int *a, int low, int high, int mid)
-{
-	int i, j, k, temp[high-low+1];
-	i = low;
-	k = 0;
-        j = mid + 1;
-        while (i <= mid && j <= high)
-	{
-		if (a[i] < a[j])
-		{
-		temp[k] = a[i];
-		k++;
-		i++;
-		}
-		else
-		{
-		temp[k] = a[j];
-		k++;
-		j++;
-		}
-	}
-	while (i <= mid)
-	{
-	temp[k] = a[i];
-	k++;
-	i++;
-	}
-	while (j <= high)
-	{
-	temp[k] = a[j];
-	k++;
-	j++;
-	}
-	for (i = low; i <= high; i++)
-	{
-	a[i] = temp[i-low];
-	}
-}
-void MergeSort(int *a, int low, int high)
-{
-	int mid;
-	if (low < high)
-	{
-	 mid=(low+high)/2;
-	 MergeSort(a, low, mid);
-         MergeSort(a, mid+1, high);
-	 Merge(a, low, high, mid);
-	}
-}
-int main()
-{
-	int n, i;
-	cout<<"\nEnter the number of data element to be sorted: ";
-	cin>>n;
-	int arr[n];
-	for(i = 0; i < n; i++)
-	{
-	   cout<<"Enter element "<<i+1<<": ";
-	   cin>>arr[i];
-	}
-         MergeSort(arr, 0, n-1);
-	 cout<<"\nSorted Data ";
-	 for (i = 0; i < n; i++)
-            cout<<"->"<<arr[i];
-	 getch();
-}
+using namespace std;<br>
+void Merge(int *a, int low, int high, int mid)<br>
+{<br>
+	int i, j, k, temp[high-low+1];<br>
+	i = low;<br>
+	k = 0;<br>
+        j = mid + 1;<br>
+        while (i <= mid && j <= high)<br>
+	{<br>
+		if (a[i] < a[j])<br>
+		{<br>
+		temp[k] = a[i];<br>
+		k++;<br>
+		i++;<br>
+		}<br>
+		else<br>
+		{<br>
+		temp[k] = a[j];<br>
+		k++;<br>
+		j++;<br>
+		}<br>
+	}<br>
+	while (i <= mid)<br>
+	{<br>
+	temp[k] = a[i];<br>
+	k++;<br>
+	i++;<br>
+	}<br>
+	while (j <= high)<br>
+	{<br>
+	temp[k] = a[j];<br>
+	k++;<br>
+	j++;<br>
+	}<br>
+	for (i = low; i <= high; i++)<br>
+	{<br>
+	a[i] = temp[i-low];<br>
+	}<br>
+}<br>
+void MergeSort(int *a, int low, int high)<br>
+{<br>
+	int mid;<br>
+	if (low < high)<br>
+	{<br>
+	 mid=(low+high)/2;<br>
+	 MergeSort(a, low, mid);<br>
+         MergeSort(a, mid+1, high);<br>
+	 Merge(a, low, high, mid);<br>
+	}<br>
+}<br>
+int main()<br>
+{<br>
+	int n, i;<br>
+	cout<<"\nEnter the number of data element to be sorted: ";<br>
+	cin>>n;<br>
+	int arr[n];<br>
+	for(i = 0; i < n; i++)<br>
+	{<br>
+	   cout<<"Enter element "<<i+1<<": ";<br>
+	   cin>>arr[i];<br>
+	}<br>
+         MergeSort(arr, 0, n-1);<br>
+	 cout<<"\nSorted Data ";<br>
+	 for (i = 0; i < n; i++)<br>
+            cout<<"->"<<arr[i];<br>
+	 getch();<br>
+}<br><br><br><br>
+	
+**OUTPUT:**
+	
+	![image](https://user-images.githubusercontent.com/97940332/162895068-4bdf1bae-bc98-4a8c-8c9e-4bafe2c6ccf7.png)
+	![image](https://user-images.githubusercontent.com/97940332/162895201-9b75ad93-894f-421f-ad17-41632632189d.png)
+	![image](https://user-images.githubusercontent.com/97940332/162895297-737bed82-c8c5-47b3-ac96-1b1df5e1a151.png)
+	![image](https://user-images.githubusercontent.com/97940332/162895402-01ef2c26-43c0-4cae-ac76-b87a0570aabf.png)
+
 			      
  
 	       
