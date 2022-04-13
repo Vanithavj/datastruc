@@ -2438,6 +2438,17 @@ void double_llist::add_after(int value, int pos)<br>
     start = p1;<br>
     cout<<"List Reversed"<<endl;<br>
 }<br>
+	
+	**OUTPUT:**
+	
+	![image](https://user-images.githubusercontent.com/97940332/163162920-824c44be-caa5-4bce-9570-a3168e5a0f7c.png)
+![image](https://user-images.githubusercontent.com/97940332/163163405-f9aef490-968b-4581-9829-2fa5e3cb93d5.png)
+![image](https://user-images.githubusercontent.com/97940332/163163513-14a0f7ce-f628-4bfd-a030-52501f29529d.png)
+![image](https://user-images.githubusercontent.com/97940332/163163578-d7ac3363-f8b8-47e1-90dc-e7f935336fdb.png)
+![image](https://user-images.githubusercontent.com/97940332/163163627-978503d2-742e-4b4e-87d4-f0977674c6ab.png)
+
+
+
 	       
 
 
