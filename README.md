@@ -2447,68 +2447,101 @@ void double_llist::add_after(int value, int pos)<br>
 ![image](https://user-images.githubusercontent.com/97940332/163163578-d7ac3363-f8b8-47e1-90dc-e7f935336fdb.png)
 ![image](https://user-images.githubusercontent.com/97940332/163163627-978503d2-742e-4b4e-87d4-f0977674c6ab.png)
 
-//N-Queens problem
+**//N-Queens problem**
 	
 	
-	#include<iostream><br>
+//program to solve the n queen problem <br>
+//grid[][] is represent the 2-d array with value(0 and 1) for grid[i][j]=1 means queen i are placed at j column.<br>
+//we can take any number of queen , for this time we take the atmost 10 queen (grid[10][10]).<br>
+#include<iostream><br>
 using namespace std;<br>
-#define N 6<br>
-void printBoard(int board[N][N])<br> {<br>
-for (int i = 0; i < N; i++) <br>{<br>
-for (int j = 0; j < N; j++)<br>
-cout << board[i][j] << " ";<br>
-cout << endl;<br>
+int grid[10][10];<br>
+
+//print the solution<br>
+void print(int n)<br> {<br>
+    for (int i = 0;i <= n-1; i++)<br> {<br>
+        for (int j = 0;j <= n-1; j++)<br> {<br>
+            
+                cout <<grid[i][j]<< " ";<br>
+            
+        }<br>
+        cout<<endl;<br>
+    }<br>
+    cout<<endl;<br>
+    cout<<endl;<br>
 }<br>
+
+//function for check the position is safe or not<br>
+//row is indicates the queen no. and col represents the possible positions<br>
+bool isSafe(int col, int row, int n)<br> {<br>
+  //check for same column<br>
+    for (int i = 0; i < row; i++) <br>{<br>
+        if (grid[i][col])<br> {<br>
+            return false;<br>
+        }<br>
+    }<br>
+    //check for upper left diagonal<br>
+    for (int i = row,j = col;i >= 0 && j >= 0; i--,j--) <br>{<br>
+        if (grid[i][j])<br> {<br>
+            return false;<br>
+        }<br>
+    }<br>
+    //check for upper right diagonal<br>
+    for (int i = row, j = col; i >= 0 && j < n; j++, i--) <br>{<br>
+        if (grid[i][j]) <br>{<br>
+            return false;<br>
+        }<br>
+    }<br>
+    return true;<br>
 }<br>
-bool isValid(int board[N][N], int row, int col)<br> {<br>
-for (int i = 0; i < col; i++) //check whether there is queen in the left or not<br>
-if (board[row][i])<br>
-return false;<br>
-for (int i=row, j=col; i>=0 && j>=0; i--, j--)<br>
-if (board[i][j]) //check whether there is queen in the left upper diagonal or not<br>
-return false;<br>
-for (int i=row, j=col; j>=0 && i<N; i++, j--)<br>
-if (board[i][j]) //check whether there is queen in the left lower diagonal or not<br>
-return false;<br>
-return true;<br>
+
+//function to find the position for each queen<br>
+//row is indicates the queen no. and col represents the possible positions<br>
+bool solve (int n, int row)<br> {<br>
+    if (n == row)<br> {<br>
+        print(n);<br>
+        return true;<br>
+    }<br>
+    //variable res is use for possible backtracking <br>
+    bool res = false;<br>
+    for (int i = 0;i <=n-1;i++)<br> {<br>
+        if (isSafe(i, row, n))<br> {<br>
+            grid[row][i] = 1;<br>
+            //recursive call solve(n, row+1) for next queen (row+1)<br>
+            res = solve(n, row+1) || res;//if res ==false then backtracking will occur <br>
+            //by assigning the grid[row][i] = 0<br>
+            
+            grid[row][i] = 0;<br>
+        }<br>
+    }<br>
+    return res;<br>
 }<br>
-bool solveNQueen(int board[N][N], int col) <br>{<br>
-if (col >= N) //when N queens are placed successfully<br>
-return true;<br>
-for (int i = 0; i < N; i++)<br> { //for each row, check placing of queen is possible or not
-if (isValid(board, i, col) )<br> {<br>
-board[i][col] = 1; //if validate, place the queen at place (i, col)<br>
-if ( solveNQueen(board, col + 1)) //Go for the other columns recursively<br>
-return true;<br>
-board[i][col] = 0; //When no place is vacant remove that queen<br>
-}<br>
-}<br>
-return false; //when no possible order is found<br>
-}<br>
-bool checkSolution() <br>{<br>
-int board[N][N];<br>
-for(int i = 0; i<N; i++)<br>
-for(int j = 0; j<N; j++)<br>
-board[i][j] = 0; //set all elements to 0<br>
-if ( solveNQueen(board, 0) == false ) { //starting from 0th column<br>
-cout << "Solution does not exist";<br>
-return false;<br>
-}<br>
-printBoard(board);<br>
-return true;<br>
-}<br>
-int main()<br> {<br>
-checkSolution();<br>
-}<br><br><br><br><br>
+
+int main()<br>
+{<br>
+  ios_base::sync_with_stdio(false);<br>
+    cin.tie(NULL);<br>
+        int n;<br>
+        cout<<"Enter the number of queen"<<endl;<br>
+        cin >> n;<br>
+        for (int i = 0;i < n;i++)<br> {<br>
+            for (int j = 0;j < n;j++)<br> {<br>
+                grid[i][j] = 0;<br>
+            }<br>
+        }<br>
+        bool res = solve(n, 0);<br>
+        if(res == false)<br> {<br>
+            cout << -1 << endl; //if there is no possible solution<br>
+        }<br> else <br>{<br>
+            cout << endl;<br>
+        }<br>
+  return 0;<br>
+}<br><br><br>
 	
 	**OUTPUT:**
 	
-	
-	
-	![image](https://user-images.githubusercontent.com/97940332/163936257-121ee873-4f31-4add-8aee-bb177a154d2a.png)
+	![image](https://user-images.githubusercontent.com/97940332/163940535-f540ba99-6ec1-493e-8449-9ef10c847c79.png)
 
-
-	       
 
 
 	
