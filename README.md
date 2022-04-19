@@ -2538,9 +2538,9 @@ int main()<br>
   return 0;<br>
 }<br><br><br>
 	
-	**OUTPUT:**
+**OUTPUT:**
 	
-	![image](https://user-images.githubusercontent.com/97940332/163940535-f540ba99-6ec1-493e-8449-9ef10c847c79.png)
+![image](https://user-images.githubusercontent.com/97940332/163940535-f540ba99-6ec1-493e-8449-9ef10c847c79.png)
 
 
 
